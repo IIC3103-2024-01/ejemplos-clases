@@ -33,3 +33,18 @@ pip install -r requirements.txt
 
 Más sobre el uso de virtualenvs y la instalación de Flask [aquí](https://flask.palletsprojects.com/en/3.0.x/installation/).
 
+
+## Ejecutar código
+Para correr el código, se debe ejecutar: 
+
+```bash
+python -m flask --app main run
+```
+
+También funciona con el comando `flask`:
+
+```bash
+flask --app main run
+```
+
+Donde `--app main` corresponde al parámetro que indica donde está el código principal, en este caso, en el archivo `main`.
