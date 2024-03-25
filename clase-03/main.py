@@ -26,9 +26,20 @@ language = "ES"
 def translate(text, language):
     return f"{text} traducido a {language}"
 
-@app.route("/translations/stateful")
+@app.route("/translations/stateful", methods=['GET', 'POST'])
 def conversation_stateful():
     global language
+
+    if request.method == 'POST':
+        new_language = request.json.get('language')
+
+        if not new_language:
+            return {"error": "missing language"}
+
+        language = new_language
+
+        return {"message": f"language updated to {language}"}
+
     text = request.args.get('text')
     if not text:
         return {"error": "missing text"}
